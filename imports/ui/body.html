@@ -1,0 +1,21 @@
+<body>
+  <div class="container">
+    <header>
+      <h1>{{title}}</h1>
+    </header>
+
+    <form class="new-task">
+        <input type="text" name="text" placeholder="Type to add new itens" />
+    </form>
+
+    <ul>
+      {{#each itens}}
+        {{> item}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+
+<template name="item">
+  <li>{{descricao}}</li>
+</template>
