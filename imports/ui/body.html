@@ -1,21 +1,24 @@
 <body>
   <div class="container">
-    <header>
-      <h1>{{title}}</h1>
-    </header>
+    <nav class="navbar navbar-inverse navbar-embossed" role="navigation" style="margin-bottom: 0px;width: 106%;margin-left: -3%;">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Pages</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-01">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#fakelink">Nova View</a></li>
+         </ul>
+      </div>
+    </nav>
 
-    <form class="new-task">
-        <input type="text" name="text" placeholder="Type to add new itens" />
-    </form>
-
-    <ul>
-      {{#each itens}}
-        {{> item}}
+    <div style="display: inline; display: -webkit-flex;-webkit-justify-content : center;">
+      {{#each views}}
+        {{> viewItem}}
       {{/each}}
-    </ul>
+    </div>
   </div>
 </body>
 
-<template name="item">
-  <li>{{descricao}}</li>
+<template name="viewItem">
+  <button type="button" class="btn btn-{{tipo}}" style="margin:5px">{{nome}}</button>
 </template>

@@ -18,11 +18,12 @@ body {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 900px;
   margin: 0 auto;
   min-height: 100%;
   background: white;
 }
+/*
 
 header {
   background: #d2edf4;
@@ -123,4 +124,4 @@ header .hide-completed {
   .new-task input {
     padding-bottom: 5px;
   }
-}
+}*/
