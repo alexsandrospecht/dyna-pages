@@ -4,8 +4,19 @@
       {{> displayItem}}
     {{/each}}
   </div>
+  <a class="btn btn-info" type="button" href="/display/{{_id}}/incluir/">Incluir</a>
 </template>
 
 <template name="displayItem">
   {{descricao}}
+</template>
+
+<template name="incluirItem">
+  <div class="container">
+      <form class="form-register">
+        <input type="text" name="descricao" placeholder="Descrição" />
+        <input type="hidden" name="id" value="{{_id}}" />
+        <button class="btn btn-info" type="submit">OK</button>
+      </form>
+  </div>
 </template>
