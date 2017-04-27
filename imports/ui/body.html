@@ -1,6 +1,6 @@
 <body>
-  <div class="container">
-    <nav class="navbar navbar-inverse navbar-embossed" role="navigation" style="margin-bottom: 0px;width: 106%;margin-left: -3%;">
+  <div>
+    <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
       <div class="navbar-header">
         <a class="navbar-brand" href="/">Pages</a>
       </div>
@@ -16,9 +16,17 @@
         {{> viewItem}}
       {{/each}}
     </div>
+
+    <main>
+        {{> Template.dynamic template=content}}
+    </main>
   </div>
 </body>
 
 <template name="viewItem">
-  <button type="button" class="btn btn-{{tipo}}" style="margin:5px">{{nome}}</button>
+  <!-- <button type="button" class="btn btn-{{tipo}}" style="margin:5px">{{nome}}</button> -->
+  <a class="btn btn-{{tipo}}" type="button" style="margin:5px" href="/display/{{_id}}">{{nome}}</a>
+</template>
+
+<template name="vazio">
 </template>

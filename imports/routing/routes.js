@@ -1,0 +1,23 @@
+FlowRouter.route('/display/:_id', {
+  action: function(params) {
+    render("display", {_id: params._id});
+  },
+});
+
+route('/', 'vazio');
+
+function route(from, toAction) {
+  FlowRouter.route(from, {
+    action: function(params) {
+      render(toAction);
+    }
+  });
+};
+
+function render(action, ...params) {
+  renderWithoutLogin(action, params);
+}
+
+function renderWithoutLogin(action, ...params) {
+  BlazeLayout.render(action, params);
+}
