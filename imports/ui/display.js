@@ -22,16 +22,16 @@ Template.incluirItem.events({
   'submit .form-register': function(event) {
        event.preventDefault();
        var descricaoValue = event.target.descricao.value;
+       var autorValue = event.target.autor.value;
        var viewValue = event.target.id.value;
-
-       console.log(viewValue)
-       console.log(descricaoValue)
 
        Itens.insert({
          descricao: descricaoValue,
+         autor: autorValue,
          view: viewValue
        });
 
        event.target.descricao.value = '';
+       FlowRouter.go('/');
    },
 });

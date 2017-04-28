@@ -4,6 +4,12 @@ FlowRouter.route('/display/:_id', {
   },
 });
 
+FlowRouter.route('/newView', {
+  action: function(params) {
+    render("incluirView");
+  },
+});
+
 FlowRouter.route('/display/:_id/incluir', {
   action: function(params) {
     render("incluirItem", {_id: params._id});

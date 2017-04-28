@@ -3,18 +3,26 @@
     {{#each itens}}
       {{> displayItem}}
     {{/each}}
+    <div style="text-align:center;">
+      <a class="btn btn-primary" type="button" href="/display/{{_id}}/incluir/">Incluir</a>
+    </div>
   </div>
-  <a class="btn btn-info" type="button" href="/display/{{_id}}/incluir/">Incluir</a>
 </template>
 
 <template name="displayItem">
-  {{descricao}}
+  <div class="tile" style="text-align:center;margin-top:10px">
+    <h5>"{{descricao}}"</h5>
+    <div style="text-align:right">
+      by {{autor}}
+    </div>
+  </div>
 </template>
 
 <template name="incluirItem">
   <div class="container">
       <form class="form-register">
         <input type="text" name="descricao" placeholder="Descrição" />
+        <input type="text" name="autor" placeholder="Autor" />
         <input type="hidden" name="id" value="{{_id}}" />
         <button class="btn btn-info" type="submit">OK</button>
       </form>
