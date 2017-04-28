@@ -5,7 +5,7 @@ import { Itens } from '../api/itens.js';
 Template.display.helpers({
   itens() {
     var id = FlowRouter.current().params._id;
-    return Itens.find({view: id});
+    return Itens.find({view: id}, {sort: {createdAt: -1}});
   },
   _id(){
     return FlowRouter.current().params._id;
@@ -28,10 +28,10 @@ Template.incluirItem.events({
        Itens.insert({
          descricao: descricaoValue,
          autor: autorValue,
+         createdAt: new Date(),
          view: viewValue
        });
-
-       event.target.descricao.value = '';
-       FlowRouter.go('/');
+      //  event.target.descricao.value = '';
+       FlowRouter.go('/display/' + viewValue);
    },
 });

@@ -3,7 +3,7 @@
     {{#each itens}}
       {{> displayItem}}
     {{/each}}
-    <div style="text-align:center;">
+    <div style="text-align:center; margin:10px">
       <a class="btn btn-primary" type="button" href="/display/{{_id}}/incluir/">Incluir</a>
     </div>
   </div>
@@ -21,10 +21,16 @@
 <template name="incluirItem">
   <div class="container">
       <form class="form-register">
-        <input type="text" name="descricao" placeholder="Descrição" />
-        <input type="text" name="autor" placeholder="Autor" />
+        <div class="row" style="margin:10px">
+          <input type="text" class="form-control input-sm" name="descricao" placeholder="Descrição" />
+        </div>
+        <div class="row" style="margin:10px">
+          <input type="text" class="form-control input-sm" name="autor" placeholder="Autor" />
+        </div>
         <input type="hidden" name="id" value="{{_id}}" />
-        <button class="btn btn-info" type="submit">OK</button>
+        <div class="row" style="margin:10px">
+          <button class="btn btn-info" type="submit">OK</button>
+        </div>
       </form>
   </div>
 </template>

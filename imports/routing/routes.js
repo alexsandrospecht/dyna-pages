@@ -1,5 +1,6 @@
 FlowRouter.route('/display/:_id', {
   action: function(params) {
+    render("vazio");
     render("display", {_id: params._id});
   },
 });
