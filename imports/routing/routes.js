@@ -1,7 +1,7 @@
-FlowRouter.route('/display/:_id', {
+FlowRouter.route('/display/:_id/:_page', {
   action: function(params) {
     render("vazio");
-    render("display", {_id: params._id});
+    render("display", {_id: params._id, _page:params._page});
   },
 });
 
@@ -11,7 +11,7 @@ FlowRouter.route('/newView', {
   },
 });
 
-FlowRouter.route('/display/:_id/incluir', {
+FlowRouter.route('/incluir/:_id', {
   action: function(params) {
     render("incluirItem", {_id: params._id});
   },

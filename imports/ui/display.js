@@ -5,10 +5,23 @@ import { Itens } from '../api/itens.js';
 Template.display.helpers({
   itens() {
     var id = FlowRouter.current().params._id;
-    return Itens.find({view: id}, {sort: {createdAt: -1}});
+    var page = FlowRouter.current().params._page;
+    return Itens.find({view: id}
+      , {
+        sort: {createdAt: -1},
+        limit: 5,
+        skip: (page -1) * 5
+        });
   },
   _id(){
     return FlowRouter.current().params._id;
+  },
+  nextPage(){
+    return parseInt(FlowRouter.current().params._page) + 1;
+  },
+  prevPage(){
+    var page = parseInt(FlowRouter.current().params._page);
+    return page == 1 ? 1 : page -1;
   }
 });
 
@@ -32,6 +45,6 @@ Template.incluirItem.events({
          view: viewValue
        });
       //  event.target.descricao.value = '';
-       FlowRouter.go('/display/' + viewValue);
+       FlowRouter.go('/display/' + viewValue + '/1');
    },
 });

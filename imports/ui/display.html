@@ -4,7 +4,22 @@
       {{> displayItem}}
     {{/each}}
     <div style="text-align:center; margin:10px">
-      <a class="btn btn-primary" type="button" href="/display/{{_id}}/incluir/">Incluir</a>
+      <a class="btn btn-primary" type="button" href="/incluir/{{_id}}/">Incluir</a>
+
+      <nav>
+      <ul class="pager">
+        <li class="{{prevPageClass}}">
+          <a id="prevPage" href="/display/{{_id}}/{{prevPage}}">
+            <span aria-hidden="true">&larr;</span> Previous
+          </a>
+        </li>
+        <li class="{{nextPageClass}}">
+          <a id="nextPage" href="/display/{{_id}}/{{nextPage}}">
+            Next <span aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
     </div>
   </div>
 </template>
