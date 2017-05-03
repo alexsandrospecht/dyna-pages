@@ -17,7 +17,11 @@ Template.display.helpers({
     return FlowRouter.current().params._id;
   },
   nextPage(){
-    return parseInt(FlowRouter.current().params._page) + 1;
+    var id = FlowRouter.current().params._id;
+    var count = Itens.find({view: id}).count();
+    var currentPage = parseInt(FlowRouter.current().params._page);
+
+    return count - (currentPage * 5) > 0 ? currentPage + 1 : currentPage;
   },
   prevPage(){
     var page = parseInt(FlowRouter.current().params._page);
