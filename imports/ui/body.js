@@ -10,3 +10,7 @@ Template.body.helpers({
     return Views.find({});
   },
 });
+
+Template.body.onCreated(function bodyOnCreated() {
+  Meteor.subscribe('views');
+});

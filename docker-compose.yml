@@ -1,0 +1,25 @@
+version: '2.1'
+services:
+  database:
+    image: mongo:latest
+    command: mongod --smallfiles
+    ports:
+      - "27017:27017"
+    healthcheck:
+      test: ["CMD", "echo", "show dbs", "|", "mongo"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  dyna-pages:
+    build: .
+    ports:
+     - "80:80"
+     - "3000:3000"
+    environment:
+     - MONGO_URL=mongodb://database:27017/dyna-pages
+     - ROOT_URL=http://teste.com
+    depends_on:
+      database:
+        condition: service_healthy
+    links:
+     - database

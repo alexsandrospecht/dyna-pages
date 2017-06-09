@@ -2,6 +2,10 @@ import './display.html';
 
 import { Itens } from '../api/itens.js';
 
+Template.display.onCreated(function displayOnCreated() {
+  Meteor.subscribe('itens');
+});
+
 Template.display.helpers({
   itens() {
     var id = FlowRouter.current().params._id;
